@@ -12,20 +12,21 @@
 // currentScreen === "start"
 function drawStart() {
   // Background colour for the start screen
-  background(180, 225, 220); // soft teal background
-
+  background(60, 20, 220); // soft teal background
+  Image(bg_night, 0, 0, width, height); //Line assisted with AI
   // ---- Title text ----
   fill(30, 50, 60);
+
   textSize(46);
   textAlign(CENTER, CENTER);
-  text("Win or Lose", width / 2, 180);
+  text("A Cold UW Night", width / 2, 180);
 
   // ---- Buttons (data only) ----
   // These objects store the position/size/label for each button.
   // Using objects makes it easy to pass them into drawButton()
   // and also reuse the same information for hover checks.
   const startBtn = {
-    x: width / 2,
+    x: width / 3,
     y: 320,
     w: 240,
     h: 80,
@@ -33,8 +34,8 @@ function drawStart() {
   };
 
   const instrBtn = {
-    x: width / 2,
-    y: 430,
+    x: (width / 3) * 2,
+    y: 320,
     w: 240,
     h: 80,
     label: "INSTRUCTIONS",
@@ -110,11 +111,11 @@ function drawButton({ x, y, w, h, label }) {
   // We also add a shadow using drawingContext (p5 lets you access the
   // underlying canvas context for effects like shadows).
   if (hover) {
-    fill(255, 200, 150, 220); // warm coral on hover
+    fill(104, 204, 255, 220); // light blue on hover
 
     // Shadow settings (only when hovered)
     drawingContext.shadowBlur = 20;
-    drawingContext.shadowColor = color(255, 180, 120);
+    drawingContext.shadowColor = color(204, 255, 255); //light blue shadow on hover
   } else {
     fill(255, 240, 210, 210); // soft cream base
 

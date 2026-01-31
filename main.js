@@ -23,10 +23,21 @@
 // Only one screen should be active at a time.
 let currentScreen = "start"; // "start" | "instr" | "game" | "win" | "lose"
 
+let goose_1;
+let bg_night;
+
 // ------------------------------
 // setup() runs ONCE at the beginning
 // ------------------------------
 // This is where you usually set canvas size and initial settings.
+
+//Loading in photo assets
+function preload() {
+  goose_1 = loadImage("/assets/canada_goose_1.png");
+  //goose_2 = loadImage('assets/canada_goose2.png');
+  bg_night = loadImage("/assets/UW_SNOW.jpg");
+}
+
 function setup() {
   createCanvas(800, 800);
 
