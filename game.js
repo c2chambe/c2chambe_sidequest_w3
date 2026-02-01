@@ -17,7 +17,7 @@ const gameBtn1 = {
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "OPTION 1", // text shown on the button
+  label: "Walk Away.", // text shown on the button
 };
 
 const gameBtn2 = {
@@ -25,7 +25,7 @@ const gameBtn2 = {
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "OPTION 2", // text shown on the button
+  label: "Approach it.", // text shown on the button
 };
 
 // ------------------------------
@@ -36,19 +36,24 @@ const gameBtn2 = {
 function drawGame() {
   // Set background colour for the game screen
   background(240, 230, 140);
-
+  image(bg_night, 0, 0, width, height); //Line assisted with AI
+  filter(GRAY);
   // ---- Title and instructions text ----
-  fill(0); // black text
+  fill(255); // white text
   textSize(32);
   textAlign(CENTER, CENTER);
-  text("Game Screen", width / 2, 160);
+  text("Introduction", width / 2, 160);
 
   textSize(18);
   text(
-    "Use your mouse to interact with buttons and to skip to next dialogue.",
+    "You are a UW student heading home after a long day of studying. You step outside of Dana Porter Library and into the cold, January night. You walk down the quiet campus streets. The snow crunches under your boots, reflecting the the yellow light of the street lights against the pitch-black sky. Campus is quiet at this time of night. You continue walking down the path, thinking about how nice it will feel to crawl into your warm bed.\n \n Looking up from your phone, you notice a dark shape in front of you, about 30 feet away. You freeze. A chill runs down your spine. Though you cannot make out what you're looking at, something in your gut tells you stay away.",
     width / 2,
-    210,
+    300,
+    width - 80,
   );
+
+  textSize(24);
+  text("What do you do?", width / 2, 450);
 
   // ---- Draw the button ----
   // We pass the button object to a helper function
@@ -104,7 +109,7 @@ function gameMousePressed() {
     y: 550, // y position (centre of the button)
     w: 260, // width
     h: 90, // height
-    label: "OPTION 1", // text shown on the button
+    label: "Walk away.", // text shown on the button
   };
 
   const gameBtn2 = {
@@ -112,12 +117,12 @@ function gameMousePressed() {
     y: 550, // y position (centre of the button)
     w: 260, // width
     h: 90, // height
-    label: "OPTION 2", // text shown on the button
+    label: "Approach it.", // text shown on the button
   };
 
-  // Only trigger the outcome if the button is clicked
+  // Trigger different outcomes bsed on which button was clicked
   if (isHover(gameBtn1)) {
-    triggerRandomOutcome();
+    walkAway();
   } else if (isHover(gameBtn2)) {
     gooseFriend();
   }
@@ -126,34 +131,23 @@ function gameMousePressed() {
   // Keyboard input for this screen
   // ------------------------------
   // Allows keyboard-only interaction (accessibility + design)
-  function gameKeyPressed() {
+  /* function gameKeyPressed() {
     // ENTER key triggers the same behaviour as clicking the button
     if (keyCode === ENTER) {
       triggerRandomOutcome();
     }
-  }
+  */
+}
 
-  // ------------------------------
-  // Game logic: win or lose
-  // ------------------------------
-  // This function decides what happens next in the game.
-  // It does NOT draw anything.
-  function triggerRandomOutcome() {
-    // random() returns a value between 0 and 1
-    // Here we use a 50/50 chance:
-    // - less than 0.5 → win
-    // - 0.5 or greater → lose
-    //
-    // You can bias this later, for example:
-    // random() < 0.7 → 70% chance to win
-    if (random() < 0.5) {
-      currentScreen = "win";
-    } else {
-      currentScreen = "lose";
-    }
-  }
+// ------------------------------
+// Game logic: win or lose
+// ------------------------------
+// This function decides what happens next in the game.
+// It does NOT draw anything.
+function walkAway() {
+  currentScreen = "leave";
+}
 
-  function gooseFriend() {
-    currentScreen = "friend";
-  }
+function gooseFriend() {
+  currentScreen = "approach";
 }

@@ -1,29 +1,29 @@
-//Ending 3/3: Friend of geese
+//Ending 1/3: Escaped the Goose
 
 //DO NOT ADD SETUP() or DRAW()
 //setup() and draw live in main.js
 
-function drawFriend() {
+function drawRun() {
   background(255, 204, 0);
-  image(goose_2, 0, 0, width, height); //AI Assisted line
-  filter(GRAY);
-  fill(255);
+  image(bg_DC, 0, 0, width, height);
+  filter(THRESHOLD, 0.6);
+  fill(60, 255, 150); //FIND A BETTER COLOUR
   textAlign(CENTER, CENTER);
 
   // Main success message
   textStyle(BOLD);
   textSize(40);
-  text("Friend of Geese", width / 2, 250);
+  text("You run away...", width / 2, 150);
   textWrap(WORD);
   // Explaination text
   textSize(20);
   text(
-    " The goose honks excitedly, then flies away. The goose went back to its flock and told them all about the two-legged beast who spoke their language with such dignity and grace. You have gained allyship with all geese on campus and they no longer attack you. As you walk home, confused, you wonder how your plan actually worked out.  ",
+    " You turn around and run as fast as you can towards the bus stop. Behind you you hear a cacophony of angry honks and duriously flapping wings as the goose tries to catch up to you. You see your bus arriving at the terminal and sprint towards the opening doors. You leap onto the bus and the doors close with the goose right behind them. You breathe a deep sigh, and take one last look at the goose who is glaring at you on the other side of the glass. You're safe...for now. ",
     width / 2,
-    360,
+    310,
     width - 80,
   );
-  text("Ending 3/3", width / 2, 450);
+  text("Ending 1/3", width / 2, 450);
 
   const restartBtn = {
     x: width / 2,
@@ -33,12 +33,12 @@ function drawFriend() {
     label: "START OVER",
   };
 
-  drawFriendButton(restartBtn);
+  drawRunButton(restartBtn);
 
   cursor(isHover(restartBtn) ? HAND : ARROW); //AI assited line
 }
 
-function friendMousePressed() {
+function runMousePressed() {
   const restartBtn = { x: width / 2, y: 560, w: 220, h: 70 };
   if (isHover(restartBtn)) {
     currentScreen = "start";
@@ -49,13 +49,13 @@ function friendMousePressed() {
 // Keyboard input for win screen
 // ------------------------------------------------------------
 //Restart function key press
-function friendKeyPressed() {
+function runKeyPressed() {
   if (key === "r" || key === "R") {
     currentScreen = "start";
   }
 }
 
-function drawFriendButton({ x, y, w, h, label }) {
+function drawRunButton({ x, y, w, h, label }) {
   rectMode(CENTER);
 
   // Check whether the mouse is hovering over the button

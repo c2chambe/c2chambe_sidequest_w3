@@ -25,6 +25,13 @@ let currentScreen = "start"; // "start" | "instr" | "game" | "win" | "lose"
 
 let goose_1;
 let bg_night;
+let bg_bridge;
+let bg_DC;
+let wat_SNOW;
+let goose_2;
+
+const width = 800;
+const height = 800;
 
 // ------------------------------
 // setup() runs ONCE at the beginning
@@ -52,14 +59,17 @@ function draw() {
   //   win.js           → drawWin()
   //   lose.js          → drawLose()
 
-  /*if (currentScreen === "start") drawStart();
+  if (currentScreen === "start") drawStart();
   else if (currentScreen === "instr") drawInstr();
   else if (currentScreen === "game") drawGame();
   else if (currentScreen === "win") drawWin();
   else if (currentScreen === "lose") drawLose();
   else if (currentScreen === "friend") drawFriend();
-*/
-  drawFriend();
+  else if (currentScreen === "leave") drawLeave();
+  else if (currentScreen === "approach") drawApproach();
+  else if (currentScreen === "honk") drawHonk();
+  else if (currentScreen === "run") drawRun();
+
   // (Optional teaching note)
   // This “if/else chain” is a very common early approach.
   // Later in the course you might replace it with:
@@ -86,7 +96,13 @@ function mousePressed() {
   // This prevents errors if a screen doesn’t implement a handler.
   else if (currentScreen === "win") winMousePressed?.();
   else if (currentScreen === "lose") loseMousePressed?.();
-  else if (currentScreen === "friend") friendMousePressed?.(); //AI assited line
+  else if (currentScreen === "friend")
+    friendMousePressed?.(); //AI assited line
+  else if (currentScreen === "leave")
+    leaveMousePressed?.(); //AI assisted line
+  else if (currentScreen === "approach") approachMousePressed?.();
+  else if (currentScreen === "honk") honkMousePressed?.();
+  else if (currentScreen === "run") runMousePressed?.();
 }
 
 // ------------------------------
@@ -106,7 +122,13 @@ function keyPressed() {
   else if (currentScreen === "game") gameKeyPressed?.();
   else if (currentScreen === "win") winKeyPressed?.();
   else if (currentScreen === "lose") loseKeyPressed?.();
-  else if (currentScreen === "friend") friendKeyPressed?.(); //AI assisted line
+  else if (currentScreen === "friend")
+    friendKeyPressed?.(); //AI assisted line
+  else if (currentScreen === "leave")
+    leaveKeyPressed?.(); //AI assisted line
+  else if (currentScreen === "approach") approachKeyPressed?.();
+  else if (currentScreen === "honk") honkKeyPressed?.();
+  else if (currentScreen === "run") runKeyPressed?.();
 }
 
 // ------------------------------------------------------------

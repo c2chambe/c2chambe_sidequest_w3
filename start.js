@@ -16,6 +16,10 @@ function preload() {
   goose_1 = loadImage("./Assets/canada_goose_1.png");
   //goose_2 = loadImage('assets/canada_goose2.png');
   bg_night = loadImage("./Assets/UW_SNOW.jpg");
+  bg_bridge = loadImage("./Assets/UW_BRIDGE.jpg");
+  bg_DC = loadImage("./Assets/DC_SNOW.jpg");
+  wat_SNOW = loadImage("./Assets/WAT_SNOW.jpg");
+  goose_2 = loadImage("./Assets/goose_flight.jpg");
 }
 
 function drawStart() {

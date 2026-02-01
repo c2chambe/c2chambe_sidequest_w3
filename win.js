@@ -37,9 +37,6 @@ function winMousePressed() {
   currentScreen = "start";
 }
 
-// ------------------------------------------------------------
-// Keyboard input for win screen
-// ------------------------------------------------------------
 // R is commonly used for “restart” in games
 function winKeyPressed() {
   if (key === "r" || key === "R") {
