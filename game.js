@@ -126,24 +126,8 @@ function gameMousePressed() {
   } else if (isHover(gameBtn2)) {
     gooseFriend();
   }
-
-  // ------------------------------
-  // Keyboard input for this screen
-  // ------------------------------
-  // Allows keyboard-only interaction (accessibility + design)
-  /* function gameKeyPressed() {
-    // ENTER key triggers the same behaviour as clicking the button
-    if (keyCode === ENTER) {
-      triggerRandomOutcome();
-    }
-  */
 }
 
-// ------------------------------
-// Game logic: win or lose
-// ------------------------------
-// This function decides what happens next in the game.
-// It does NOT draw anything.
 function walkAway() {
   currentScreen = "leave";
 }
