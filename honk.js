@@ -20,8 +20,10 @@ function drawHonk() {
   textWrap(WORD);
   // Explaination text
   textSize(18);
+  fill(255);
+
   text(
-    "Against your better judgement, and fighting your inistincts to run away, you cautiously approach the black form in front of you. As you get closer you are able to make out what you're looking it - a Canadian Goose. THe goose stares at you with emotionless black eyes. It spreads its wings and lets out a menacing HONK that echoes across campus. It won't let you pass that easily.",
+    " The goose looks takeen aback by your bizzare response. It cautiously approaches you, its webbed feet crunchy lightly in the snow. It looks up at you to meet your nervous gaze. As it looks at you it gives an intruiged, yet slightly confused sounding honk, almost as if it is expecting you to do something.",
     width / 2,
     170,
     width - 80,
@@ -35,7 +37,7 @@ function drawHonk() {
     y: 560,
     w: 220,
     h: 70,
-    label: "Honk Back.",
+    label: "Honk Again?",
   };
 
   const honkBtn2 = {
@@ -43,7 +45,7 @@ function drawHonk() {
     y: 560,
     w: 220,
     h: 70,
-    label: "Attempt to scare it.",
+    label: "Scare It.",
   };
 
   drawHonkButton(honkBtn1);
@@ -58,7 +60,7 @@ function honkMousePressed() {
     y: 560,
     w: 220,
     h: 70,
-    label: "Honk Back.",
+    label: "Honk Again?",
   };
 
   const honkBtn2 = {
@@ -66,7 +68,7 @@ function honkMousePressed() {
     y: 560,
     w: 220,
     h: 70,
-    label: "Attempt to scare it.",
+    label: "Scare It.",
   };
 
   if (isHover(honkBtn1)) {

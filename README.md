@@ -1,18 +1,18 @@
-## Project Title
+## A Cold UW Night
 
-GBDA302 Week 3 Example 1: Instructions Screen with Back button
+A short visual novel by Clarissa Chamberlain (21067308)
 
 ---
 
 ## Authors
 
-Karen Cochrane and David Han
+Clarissa Chamberlain (21067308)
 
 ---
 
 ## Description
 
-This p5.js project demonstrates a simple multi-screen game structure using a state-based approach. The example includes a start screen, an instructions screen with a back button, a basic game screen, and win/lose outcome screens. The focus is on showing how to separate screens into different files, route input based on the current game state, and design simple UI elements such as buttons and keyboard controls.
+This p5.js project demonstrates a game with multiple states that alter depending on the choices made by the user.
 
 ---
 
@@ -28,12 +28,14 @@ This p5.js project demonstrates a simple multi-screen game structure using a sta
 
 ## Assets
 
-N/A
+[1] Canada Goose isolated on transparent background Pro PNG. Vecteezy. Retrieved from https://www.vecteezy.com/png/57733168-canada-goose-isolated-on-transparent-background
+
+[2] Dave McKinnon. 2023. Richmond News. Retrieved from https://www.richmond-news.com/in-the-community/happy-monday-richmond-photos-of-the-week-7985315
 
 ---
 
 ## GenAI
 
-The code was written by Dr. Karen Cochrane but she used GenAI to write the comments.
+The code was written by Clarissa Chamberlain, with the AI finishing some lines of code with preexisting information in other parts of the code.
 
 ---
