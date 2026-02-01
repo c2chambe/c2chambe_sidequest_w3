@@ -12,7 +12,7 @@
 // only when currentScreen === "instr"
 function drawInstr() {
   // Light neutral background
-  background(240);
+  background(240, 0, 0);
 
   // ---- Screen title ----
   fill(0);

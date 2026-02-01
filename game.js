@@ -12,12 +12,20 @@
 // and interact with the button on the game screen.
 // Keeping this in one object makes it easier to move,
 // resize, or restyle the button later.
-const gameBtn = {
-  x: 400, // x position (centre of the button)
+const gameBtn1 = {
+  x: 200, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "PRESS HERE", // text shown on the button
+  label: "OPTION 1", // text shown on the button
+};
+
+const gameBtn2 = {
+  x: 600, // x position (centre of the button)
+  y: 550, // y position (centre of the button)
+  w: 260, // width
+  h: 90, // height
+  label: "OPTION 2", // text shown on the button
 };
 
 // ------------------------------
@@ -37,19 +45,20 @@ function drawGame() {
 
   textSize(18);
   text(
-    "Click the button (or press ENTER) for a random result.",
+    "Use your mouse to interact with buttons and to skip to next dialogue.",
     width / 2,
     210,
   );
 
   // ---- Draw the button ----
   // We pass the button object to a helper function
-  drawGameButton(gameBtn);
+  drawGameButton(gameBtn1);
+  drawGameButton(gameBtn2); //AI assisted line
 
   // ---- Cursor feedback ----
-  // If the mouse is over the button, show a hand cursor
+  // If the mouse is over a button, show a hand cursor
   // Otherwise, show the normal arrow cursor
-  cursor(isHover(gameBtn) ? HAND : ARROW);
+  cursor(isHover(gameBtn1) || isHover(gameBtn2) ? HAND : ARROW);
 }
 
 // ------------------------------
@@ -90,39 +99,61 @@ function drawGameButton({ x, y, w, h, label }) {
 // This function is called from main.js
 // only when currentScreen === "game"
 function gameMousePressed() {
+  const gameBtn1 = {
+    x: 200, // x position (centre of the button)
+    y: 550, // y position (centre of the button)
+    w: 260, // width
+    h: 90, // height
+    label: "OPTION 1", // text shown on the button
+  };
+
+  const gameBtn2 = {
+    x: 600, // x position (centre of the button)
+    y: 550, // y position (centre of the button)
+    w: 260, // width
+    h: 90, // height
+    label: "OPTION 2", // text shown on the button
+  };
+
   // Only trigger the outcome if the button is clicked
-  if (isHover(gameBtn)) {
+  if (isHover(gameBtn1)) {
     triggerRandomOutcome();
+  } else if (isHover(gameBtn2)) {
+    gooseFriend();
   }
-}
 
-// ------------------------------
-// Keyboard input for this screen
-// ------------------------------
-// Allows keyboard-only interaction (accessibility + design)
-function gameKeyPressed() {
-  // ENTER key triggers the same behaviour as clicking the button
-  if (keyCode === ENTER) {
-    triggerRandomOutcome();
+  // ------------------------------
+  // Keyboard input for this screen
+  // ------------------------------
+  // Allows keyboard-only interaction (accessibility + design)
+  function gameKeyPressed() {
+    // ENTER key triggers the same behaviour as clicking the button
+    if (keyCode === ENTER) {
+      triggerRandomOutcome();
+    }
   }
-}
 
-// ------------------------------
-// Game logic: win or lose
-// ------------------------------
-// This function decides what happens next in the game.
-// It does NOT draw anything.
-function triggerRandomOutcome() {
-  // random() returns a value between 0 and 1
-  // Here we use a 50/50 chance:
-  // - less than 0.5 → win
-  // - 0.5 or greater → lose
-  //
-  // You can bias this later, for example:
-  // random() < 0.7 → 70% chance to win
-  if (random() < 0.5) {
-    currentScreen = "win";
-  } else {
-    currentScreen = "lose";
+  // ------------------------------
+  // Game logic: win or lose
+  // ------------------------------
+  // This function decides what happens next in the game.
+  // It does NOT draw anything.
+  function triggerRandomOutcome() {
+    // random() returns a value between 0 and 1
+    // Here we use a 50/50 chance:
+    // - less than 0.5 → win
+    // - 0.5 or greater → lose
+    //
+    // You can bias this later, for example:
+    // random() < 0.7 → 70% chance to win
+    if (random() < 0.5) {
+      currentScreen = "win";
+    } else {
+      currentScreen = "lose";
+    }
+  }
+
+  function gooseFriend() {
+    currentScreen = "friend";
   }
 }

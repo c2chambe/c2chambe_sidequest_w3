@@ -10,14 +10,21 @@
 // ------------------------------------------------------------
 // drawStart() is called from main.js only when:
 // currentScreen === "start"
+
+//Loading in photo assets
+function preload() {
+  goose_1 = loadImage("./Assets/canada_goose_1.png");
+  //goose_2 = loadImage('assets/canada_goose2.png');
+  bg_night = loadImage("./Assets/UW_SNOW.jpg");
+}
+
 function drawStart() {
   // Background colour for the start screen
   background(60, 20, 220); // soft teal background
-  Image(bg_night, 0, 0, width, height); //Line assisted with AI
+  image(bg_night, 0, 0, width, height); //Line assisted with AI
   // ---- Title text ----
-  fill(30, 50, 60);
-
-  textSize(46);
+  fill(255, 255, 255);
+  textSize(46); //originally 46
   textAlign(CENTER, CENTER);
   text("A Cold UW Night", width / 2, 180);
 
@@ -25,7 +32,8 @@ function drawStart() {
   // These objects store the position/size/label for each button.
   // Using objects makes it easy to pass them into drawButton()
   // and also reuse the same information for hover checks.
-  const startBtn = {
+
+  let startBtn = {
     x: width / 3,
     y: 320,
     w: 240,
@@ -33,7 +41,7 @@ function drawStart() {
     label: "START",
   };
 
-  const instrBtn = {
+  let instrBtn = {
     x: (width / 3) * 2,
     y: 320,
     w: 240,
@@ -58,8 +66,21 @@ function drawStart() {
 // Called from main.js only when currentScreen === "start"
 function startMousePressed() {
   // For input checks, we only need x,y,w,h (label is optional)
-  const startBtn = { x: width / 2, y: 320, w: 240, h: 80 };
-  const instrBtn = { x: width / 2, y: 430, w: 240, h: 80 };
+  startBtn = {
+    x: width / 3,
+    y: 320,
+    w: 240,
+    h: 80,
+    label: "START",
+  };
+
+  instrBtn = {
+    x: (width / 3) * 2,
+    y: 320,
+    w: 240,
+    h: 80,
+    label: "INSTRUCTIONS",
+  };
 
   // If START is clicked, go to the game screen
   if (isHover(startBtn)) {

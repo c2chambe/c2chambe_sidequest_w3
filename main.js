@@ -31,13 +31,6 @@ let bg_night;
 // ------------------------------
 // This is where you usually set canvas size and initial settings.
 
-//Loading in photo assets
-function preload() {
-  goose_1 = loadImage("/assets/canada_goose_1.png");
-  //goose_2 = loadImage('assets/canada_goose2.png');
-  bg_night = loadImage("/assets/UW_SNOW.jpg");
-}
-
 function setup() {
   createCanvas(800, 800);
 
@@ -59,12 +52,14 @@ function draw() {
   //   win.js           → drawWin()
   //   lose.js          → drawLose()
 
-  if (currentScreen === "start") drawStart();
+  /*if (currentScreen === "start") drawStart();
   else if (currentScreen === "instr") drawInstr();
   else if (currentScreen === "game") drawGame();
   else if (currentScreen === "win") drawWin();
   else if (currentScreen === "lose") drawLose();
-
+  else if (currentScreen === "friend") drawFriend();
+*/
+  drawFriend();
   // (Optional teaching note)
   // This “if/else chain” is a very common early approach.
   // Later in the course you might replace it with:
@@ -91,6 +86,7 @@ function mousePressed() {
   // This prevents errors if a screen doesn’t implement a handler.
   else if (currentScreen === "win") winMousePressed?.();
   else if (currentScreen === "lose") loseMousePressed?.();
+  else if (currentScreen === "friend") friendMousePressed?.(); //AI assited line
 }
 
 // ------------------------------
@@ -110,6 +106,7 @@ function keyPressed() {
   else if (currentScreen === "game") gameKeyPressed?.();
   else if (currentScreen === "win") winKeyPressed?.();
   else if (currentScreen === "lose") loseKeyPressed?.();
+  else if (currentScreen === "friend") friendKeyPressed?.(); //AI assisted line
 }
 
 // ------------------------------------------------------------
